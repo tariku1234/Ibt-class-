@@ -20,7 +20,9 @@ class savingacount2(acount):
         super().__init__(name, balance)
         self.rate = rate
     def interest(self):
-        return self.balance * self.rate
+        interest = self.balance *self.rate
+        self.deposite(interest)
+        return interest
 s2 = savingacount2("tariku", 2000, 0.05)
 print(s2.interest())
 print(f"{s2.name} has a balance of {s2.balance} and earns interest of {s2.interest()}")
