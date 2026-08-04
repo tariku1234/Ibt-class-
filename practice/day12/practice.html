@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/reserve" method="post">
+        <lable for="name">Name </lable>
+        <input id="name" name="name" required />
+        <lable for="guests">Guests</lable>
+        <input id="guests" name="guests" type="number" min="1" max="15">
+        <input type="radio" name="seat" value="indoor">
+        <input type="checkbox" name="wifi">
+        <select name="branch">
+            <option>Bole</option>
+            <option>Kazanchis</option>
+        </select>
+    </form>
+    <fieldset>
+        <legend>Your details</legend>
+        <label for="name">Full name</label>
+        <input id="name" name="name" required>
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" placeholder="0911...">
+    </fieldset>
+
+    <form>
+        <label for="name"> Name <label>
+                <input id="name" name="name" required autocomplete="name" />
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="0911..." pattern="0(9|7)[0-9]{8}"
+                    title="e.g. 0911234567" />
+                <label for="email">Email </label>
+                <input id="email" name="email" type="email" />
+                <label for="birthday">Birthday</label>
+                <input id="birthday" name="birthday" type="date" placeholder="199" />
+                <select name="branch">
+                    <option>kality</option>
+                    <option> saris</option>
+                    <option> megenagna</option>
+
+                </select>
+                <label for="pay">Payment method</label>
+                <input type="radio" name="pay" value="telebirr">
+                <input type="radio" name="pay" value="cbebirr">
+                <button type="submit">Submit</button>
+
+
+
+
+    </form>
+
+    <table>
+        <caption>Addis branch opening hours</caption>
+        <thead>
+            <tr>
+                <th scope="col">Branch</th>
+                <th scope="col">Opens</th>
+                <th scope="col">Closes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Bole</th>
+                <td>8:30</td>
+                <td>17:00</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table>
+        <caption>student results</caption>
+        <thead>
+            <tr>
+                <th>maths</th>
+                <th>english</th>
+                <th>physics</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>90</td>
+                <td>85</td>
+                <td>95</td>
+
+            </tr>
+        </tbody>
+    </table>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFLBSKIbDXz4UsNIkkLL-QIzZOhE1ruAWYEj_VCMbpQg&s"
+        alt="ethiopian coffee" width="500" height="300">
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
