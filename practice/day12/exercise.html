@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../day13/style.css">
     <title>Habesha Eatery</title>
+
 </head>
 
 <body>
-    <h1>Habesha Eatery</h1>
-    <p>Welcome to Habesha Eatery</p>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reservations">Reservations</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <h1 class="title">Habesha Eatery</h1>
+    <p class="welcome">Welcome to Habesha Eatery. we have the best Ethiopian food in town! enjoy our delicious dishes.
+        with a wide variety of options to suit every taste. we have good service and a cozy atmosphere. </p>
 
-    <form action="">
+    <form action="" class="forms">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" required />
         <label for="email">Email</label>
         <input id="email" name="email" type="email" required />
         <label for="telephone">Phone Number</label>
         <input id="telephone" name="telephone" type="tel" required />
-        <lable for="date">Date</lable>
+        <label for="date">Date</label>
         <input id="date" type="date" required />
         <label for="size">Party Size</label>
         <input id="size" type="number" min="1" max="10" />
@@ -28,15 +39,15 @@
 
 
     </form>
-    <table>
+    <table class="menu-table">
         <caption>menu table</caption>
-        <thead>
+        <thead class="menu-table-head">
             <tr>
                 <th scope="col">Item</th>
                 <th scope="col">Price</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="menu-table-body">
             <tr>
                 <td>Injera</td>
                 <td>25.00</td>
@@ -49,10 +60,23 @@
                 <td>Tibs</td>
                 <td>400.00</td>
             </tr>
+            <tr>
+                <td>Kitfo</td>
+                <td>600.00</td>
+            </tr>
+            <tr>
+                <td>Shiro</td>
+                <td>300.00</td>
+            </tr>
+            <tr>
+                <td>Beyaynet</td>
+                <td>200.00</td>
+        </tbody>
     </table>
-    <iframe src="16105524_1520615651343469_5911176631173997891_n.jpg" alt="habesha eatery" referrerpolicy="refer">
+    <img src="https://img.magnific.com/free-photo/top-view-fast-food-mix-mozzarella-sticks-club-sandwich-hamburger-mushroom-pizza-caesar-shrimp-salad-french-fries-ketchup-mayo-cheese-sauces-table_141793-3998.jpg?semt=ais_test_b&w=740&q=80"
+        alt="habesha eatery" class="restaurant-image" width="640" height="400" loading="lazy">
 
-    </iframe>
+    </img>
 </body>
 
 </html>
