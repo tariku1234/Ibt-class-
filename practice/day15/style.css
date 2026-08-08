@@ -1,0 +1,63 @@
+.container { 
+    display: flex;
+    flex-direction: row; /* Default layout for desktop/laptop windows */
+    padding: 10px;
+    margin: 10px;
+}
+
+.item1 {
+    background-color: red;
+    width: 400px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.item2 {
+    background-color: blue;
+    width: 400px;
+    height: 100px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.item3 {
+    background-color: green;
+    width: 400px;
+    height: 100px;
+}
+
+/* Media Query for mobile screens (600px or smaller) */
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column; /* Stacks items vertically on phone screens */
+        align-items: center;    /* Centers items horizontally in column mode */
+    }
+
+    /* Optional: allow item widths to adjust on smaller phone screens */
+    .item1, .item2, .item3 {
+        width: 100%;
+        max-width: 400px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Recommended to remove unwanted bottom whitespace */
+}
+.btn{
+    background-color: blue;
+    color: white;
+    border: 1px solid black;
+    margin: 10px;
+}
+.btn:hover{
+    background-color: green;
+    color: white;
+    transition: smooth 0.3s ease-in-out;
+    transform: rotate(45deg);
+    animation: ;
+}
