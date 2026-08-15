@@ -1,0 +1,33 @@
+body {
+font-family: Arial, sans-serif;
+background: #f4f4f4;
+padding: 40px;
+}
+main {
+background: white;
+max-width: 500px;
+margin: auto;
+padding: 30px;
+border-radius: 10px;
+}
+form {
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+input {
+padding: 10px;
+font-size: 16px;
+}
+button {
+padding: 10px;
+cursor: pointer;
+}
+#error {
+color: red;
+font-weight: bold;
+}
+li {
+margin: 8px;
+
+}
