@@ -1,0 +1,11 @@
+.highlight {
+  color: red;
+}
+
+.bought{
+
+text-decoration: line-through;
+
+opacity:0.5;
+
+}
