@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "image": "images/images.jpg",
+    "name": "Nike Air Max",
+    "brand": "Nike",
+    "price": 120,
+    "sizes": [38, 39, 40, 41]
+  },
+  {
+    "id": 2,
+    "image": "images/images (1).jpg",
+    "name": "Adidas Runner",
+    "brand": "Adidas",
+    "price": 100,
+    "sizes": [39, 40, 41, 42]
+  },
+   {
+    "id": 2,
+    "image": "images/images (2).jpg",
+    "name": "Adidas Runner",
+    "brand": "Adidas",
+    "price": 100,
+    "sizes": [39, 40, 41, 42]
+  },
+   {
+    "id": 2,
+    "image": "images/images (3).jpg",
+    "name": "Adidas Runner",
+    "brand": "Adidas",
+    "price": 100,
+    "sizes": [39, 40, 41, 42]
+  },
+   {
+    "id": 2,
+    "image": "images/images (4).jpg",
+    "name": "Adidas Runner",
+    "brand": "Adidas",
+    "price": 100,
+    "sizes": [39, 40, 41, 42]
+  },
+   {
+    "id": 2,
+    "image": "images/images (5).jpg",
+    "name": "Adidas Runner",
+    "brand": "Adidas",
+    "price": 100,
+    "sizes": [39, 40, 41, 42]
+  },
+   {
+    "id": 2,
+    "image": "images/images (6).jpg",
+    "name": "Adidas Runner",
+    "brand": "Adidas",
+    "price": 100,
+    "sizes": [39, 40, 41, 42]
+  },
+   {
+    "id": 2,
+    "image": "images/images (7).jpg",
+    "name": "Adidas Runner",
+    "brand": "Adidas",
+    "price": 100,
+    "sizes": [39, 40, 41, 42]
+  }
+
+]
