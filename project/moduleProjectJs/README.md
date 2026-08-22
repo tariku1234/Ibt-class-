@@ -94,3 +94,11 @@ Used to store cart data permanently in the browser.
 ## Author
 
 Tariku Negash
+
+## loom video link
+
+https://www.loom.com/share/e4e58cbad66c44eca35c2a7dd051e581
+
+## live demo site link
+
+https://shoda.onrender.com/
