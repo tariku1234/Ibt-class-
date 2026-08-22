@@ -1,75 +1,76 @@
+const searchInput = document.querySelector("#product-search");
 const productContainer = document.querySelector("#product-container");
-
 const cartCount = document.querySelector("#cart-count");
-
 const cartButton = document.querySelector("#cart-button");
-
 const cartDropdown = document.querySelector("#cart-dropdown");
-
 const cartItemsContainer = document.querySelector("#cart-items");
-
 const cartTotal = document.querySelector("#cart-total");
 const floatingCart = document.querySelector("#floating-cart");
-
 const floatingCount = document.querySelector("#floating-count");
 
-// Load cart from localStorage
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// Store products globally for search
 
+let productsData = [];
+
+// Load cart from localStorage
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // DISPLAY CART
 
 function displayCart() {
-    cartItemsContainer.innerHTML = "";
+    cartItemsContainer.innerHTML = ""
     let total = 0;
     cart.forEach((item, index) => {
         total += item.price * item.quantity;
         const cartItem = document.createElement("div");
         cartItem.classList.add("cart-item");
         cartItem.innerHTML = `
-            <img src="${item.image}" alt="${item.name}">
-            <div>
-                <h4>${item.name}</h4>
-                <p>Brand: ${item.brand}</p>
-                <p>Size: ${item.size}</p>
-                <p>
-                    $${item.price * item.quantity}
-                </p>
-                <button 
-                class="minus"
-                data-index="${index}">
-                    -
-                </button>
-                <span>
-                    ${item.quantity}
-                </span>
-                <button 
-                class="plus"
-                data-index="${index}">
-                    +
-                </button>
-                <button 
-                class="remove-btn"
-                data-index="${index}">
-                    Remove
-                </button>
-            </div>
+        <img src="${item.image}" alt="${item.name}">
+        <div>
+            <h4>${item.name}</h4>
+            <p>
+                Brand: ${item.brand}
+            </p>
+            <p>
+                Size: ${item.size}
+            </p>
+            <p>
+                ETB ${item.price * item.quantity}
+            </p>
+            <button 
+            class="minus"
+            data-index="${index}">
+                -
+            </button>
+            <span>
+                ${item.quantity}
+            </span>
+            <button 
+            class="plus"
+            data-index="${index}">
+                +
+            </button>
+            <button
+            class="remove-btn"
+            data-index="${index}">
+                Remove
+            </button>
+        </div>
         `;
         cartItemsContainer.appendChild(cartItem);
     });
     cartTotal.textContent = total;
     cartCount.textContent = cart.length;
     floatingCount.textContent = cart.length;
-
-    // Save cart
-
     localStorage.setItem(
         "cart",
         JSON.stringify(cart)
     );
 }
 
-// CART BUTTON OPEN/CLOSE
+// OPEN / CLOSE CART
+
 
 cartButton.addEventListener("click", () => {
     cartDropdown.classList.toggle("active");
@@ -77,21 +78,14 @@ cartButton.addEventListener("click", () => {
 floatingCart.addEventListener("click", () => {
     cartDropdown.classList.toggle("active");
 });
-
-// CART ACTIONS (+ - REMOVE)
+// CART ACTIONS
 
 cartItemsContainer.addEventListener("click", (e) => {
     const index = e.target.dataset.index;
-
-    // Increase quantity
-
     if (e.target.classList.contains("plus")) {
         cart[index].quantity++;
         displayCart();
     }
-
-    // Decrease quantity
-
     if (e.target.classList.contains("minus")) {
         if (cart[index].quantity > 1) {
             cart[index].quantity--;
@@ -101,9 +95,6 @@ cartItemsContainer.addEventListener("click", (e) => {
         }
         displayCart();
     }
-
-    // Remove item completely
-
     if (e.target.classList.contains("remove-btn")) {
         cart.splice(index, 1);
         displayCart();
@@ -115,32 +106,39 @@ cartItemsContainer.addEventListener("click", (e) => {
 async function loadProduct() {
     try {
         const response = await fetch("products.json");
-        const products = await response.json();
-        products.forEach(product => {
-            const productCard = document.createElement("div");
-            productCard.classList.add("product-card");
+
+        productsData = await response.json();
+        productsData.forEach(product => {
+            const productCard =
+                document.createElement("div");
+            productCard.classList.add(
+                "product-card"
+            );
             productCard.innerHTML = `
-                <img src="${product.image}" alt="${product.name}">
-                <h3>${product.name}</h3>
+            <img src="${product.image}"
+            alt="${product.name}">
+            <h3>
+                ${product.name}
+            </h3>
+            <p>
+                Brand: ${product.brand}
+            </p>
+            <p>
+                Price: ETB ${product.price}
+            </p>
+            <div class="sizes">
                 <p>
-                    Brand: ${product.brand}
-                </p>
-                <p>
-                    Price: ETB${product.price}
-                </p>
-                <div class="sizes">
-                    <p>
                     Available Sizes:
-                    </p>
-                    ${product.sizes.map(size => `
-                        <button class="size-btn">
-                            ${size}
-                        </button>
-                    `).join("")}
-                </div>
-                <button class="add-cart">
-                    Add to Cart
-                </button>
+                </p>
+                ${product.sizes.map(size => `
+                    <button class="size-btn">
+                        ${size}
+                    </button>
+                `).join("")}
+            </div>
+            <button class="add-cart">
+                Add to Cart
+            </button>
             `;
             productContainer.appendChild(productCard);
 
@@ -154,25 +152,31 @@ async function loadProduct() {
                     selectedSize =
                         button.textContent.trim();
                     sizeButtons.forEach(btn => {
-                        btn.classList.remove("selected");
+                        btn.classList.remove(
+                            "selected"
+                        );
                     });
-                    button.classList.add("selected");
+                    button.classList.add(
+                        "selected"
+                    );
                 });
             });
-            // ADD CART
+            // ADD TO CART
 
             const addCartButton =
                 productCard.querySelector(".add-cart");
             addCartButton.addEventListener("click", () => {
                 if (selectedSize === null) {
-                    alert("Please select a size");
+                    alert(
+                        "Please select a size"
+                    );
                     return;
                 }
-                // Check existing product
-                const existingProduct = cart.find(item =>
-                    item.id === product.id &&
-                    item.size === selectedSize
-                );
+                const existingProduct =
+                    cart.find(item =>
+                        item.id === product.id &&
+                        item.size === selectedSize
+                    );
                 if (existingProduct) {
                     existingProduct.quantity++;
                 }
@@ -188,12 +192,17 @@ async function loadProduct() {
                     });
                 }
                 displayCart();
-                // Button feedback
-                addCartButton.textContent = "✓ Added";
-                addCartButton.classList.add("added");
+                addCartButton.textContent =
+                    "✓ Added";
+                addCartButton.classList.add(
+                    "added"
+                );
                 setTimeout(() => {
-                    addCartButton.textContent = "Add to Cart";
-                    addCartButton.classList.remove("added");
+                    addCartButton.textContent =
+                        "Add to Cart";
+                    addCartButton.classList.remove(
+                        "added"
+                    );
                 }, 1500);
             });
         });
@@ -205,7 +214,36 @@ async function loadProduct() {
         );
     }
 }
-// Display saved cart when page loads
+// SEARCH FUNCTION
+
+searchInput.addEventListener("input", () => {
+    const searchValue =
+        searchInput.value.toLowerCase();
+    const productCards =
+        document.querySelectorAll(".product-card");
+    productCards.forEach((card, index) => {
+        const productName =
+            productsData[index]
+                .name
+                .toLowerCase();
+        const brand =
+            productsData[index]
+                .brand
+                .toLowerCase();
+        if (
+            productName.includes(searchValue)
+            ||
+            brand.includes(searchValue)
+        ) {
+            card.style.display = "block";
+        }
+        else {
+            card.style.display = "none";
+        }
+    });
+});
+
+// START APP
+
 displayCart();
-// Load products
 loadProduct();

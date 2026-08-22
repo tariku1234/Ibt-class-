@@ -10,56 +10,56 @@
   {
     "id": 2,
     "image": "images/images (1).jpg",
-    "name": "Adidas Runner",
-    "brand": "Adidas",
+    "name": "Jordan ",
+    "brand": "Jordan",
     "price": 1000,
     "sizes": [39, 40, 41, 42]
   },
    {
     "id": 2,
     "image": "images/images (2).jpg",
-    "name": "Adidas Runner",
-    "brand": "Adidas",
+    "name": "Lacoste",
+    "brand": "Lacoste",
     "price": 2000,
     "sizes": [39, 40, 41, 42]
   },
    {
     "id": 2,
     "image": "images/images (3).jpg",
-    "name": "Adidas Runner",
-    "brand": "Adidas",
+    "name": "Lacoste",
+    "brand": "Lacoste",
     "price": 16000,
     "sizes": [39, 40, 41, 42]
   },
    {
     "id": 2,
     "image": "images/images (4).jpg",
-    "name": "Adidas Runner",
-    "brand": "Adidas",
+    "name": "Vans",
+    "brand": "Vans",
     "price": 1080,
     "sizes": [39, 40, 41, 42]
   },
    {
     "id": 2,
     "image": "images/images (5).jpg",
-    "name": "Adidas Runner",
-    "brand": "Adidas",
+    "name": "Nike Air Max",
+    "brand": "Nike",
     "price": 1700,
     "sizes": [39, 40, 41, 42]
   },
    {
     "id": 2,
     "image": "images/images (6).jpg",
-    "name": "Adidas Runner",
-    "brand": "Adidas",
+    "name": "Anbesa",
+    "brand": "Anbesa",
     "price": 1900,
     "sizes": [39, 40, 41, 42]
   },
    {
     "id": 2,
     "image": "images/images (7).jpg",
-    "name": "Adidas Runner",
-    "brand": "Adidas",
+    "name": "Anbesa",
+    "brand": "Anbesa",
     "price": 4000,
     "sizes": [39, 40, 41, 42]
   }
