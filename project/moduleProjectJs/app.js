@@ -126,7 +126,7 @@ async function loadProduct() {
                     Brand: ${product.brand}
                 </p>
                 <p>
-                    Price: $${product.price}
+                    Price: ETB${product.price}
                 </p>
                 <div class="sizes">
                     <p>
