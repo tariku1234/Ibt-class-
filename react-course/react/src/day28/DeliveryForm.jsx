@@ -1,98 +1,109 @@
 import { useState } from "react";
-import CategoryBar from "./CategoryBar";
-import DishList from "./DishList";
 
-function Menu() {
-    const [selectedCategory, setSelectedCategory] = useState("All");
-    const [total, setTotal] = useState(0);
+function DeliveryForm() {
+    const [formData, setFormData] = useState({
+        name: "",
+        phone: "",
+        area: "",
+    });
 
-    const categories = [
-        "All",
-        "Main",
-        "Starter",
-        "Breakfast",
-    ];
+    const [submitted, setSubmitted] = useState(false);
 
-    const dishes = [
-        {
-            id: 1,
-            name: "Doro Wat",
-            price: 240,
-            category: "Main",
-            spicy: true,
-        },
-        {
-            id: 2,
-            name: "Shiro",
-            price: 120,
-            category: "Main",
-            spicy: false,
-        },
-        {
-            id: 3,
-            name: "Tibs",
-            price: 280,
-            category: "Main",
-            spicy: true,
-        },
-        {
-            id: 4,
-            name: "Sambusa",
-            price: 80,
-            category: "Starter",
-            spicy: false,
-        },
-        {
-            id: 5,
-            name: "Azifa",
-            price: 100,
-            category: "Starter",
-            spicy: false,
-        },
-        {
-            id: 6,
-            name: "Firfir",
-            price: 150,
-            category: "Breakfast",
-            spicy: true,
-        },
-    ];
+    function handleChange(event) {
+        const { name, value } = event.target;
 
-    const filteredDishes =
-        selectedCategory === "All"
-            ? dishes
-            : dishes.filter(
-                (dish) => dish.category === selectedCategory
-            );
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
 
-    function handleAdd(price) {
-        setTotal((currentTotal) => currentTotal + price);
+        setSubmitted(false);
+    }
+
+    const phoneIsValid = /^09\d{8}$/.test(formData.phone);
+
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        if (!phoneIsValid) {
+            return;
+        }
+
+        setSubmitted(true);
+
+        console.log("Delivery details:", formData);
     }
 
     return (
-        <section>
-            <h2>Our Menu</h2>
+        <section className="delivery-section">
+            <h2>TeleBirr Delivery</h2>
 
-            <CategoryBar
-                categories={categories}
-                selectedCategory={selectedCategory}
-                onCategoryChange={setSelectedCategory}
-            />
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="name">Name</label>
 
-            <h2>{selectedCategory} Dishes</h2>
+                    <input
+                        id="name"
+                        name="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Enter your name"
+                        required
+                    />
+                </div>
 
-            <DishList
-                dishes={filteredDishes}
-                onAdd={handleAdd}
-            />
+                <div className="form-group">
+                    <label htmlFor="phone">
+                        TeleBirr Phone Number
+                    </label>
 
-            <div className="order-total">
-                <h2>
-                    Order Total: {total} ETB
-                </h2>
-            </div>
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        placeholder="09XXXXXXXX"
+                        required
+                    />
+
+                    {formData.phone.length > 0 && !phoneIsValid && (
+                        <p className="error">
+                            Enter a valid TeleBirr number, e.g. 0912345678
+                        </p>
+                    )}
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="area">Delivery Area</label>
+
+                    <input
+                        id="area"
+                        name="area"
+                        type="text"
+                        value={formData.area}
+                        onChange={handleChange}
+                        placeholder="Enter your area"
+                        required
+                    />
+                </div>
+
+                <button
+                    type="submit"
+                    disabled={!phoneIsValid}
+                >
+                    Confirm Delivery
+                </button>
+
+                {submitted && (
+                    <p className="success">
+                        Delivery information submitted successfully!
+                    </p>
+                )}
+            </form>
         </section>
     );
 }
 
-export default Menu;
+export default DeliveryForm;

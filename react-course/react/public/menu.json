@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Doro Wot",
+    "category": "Main",
+    "price": 250
+  },
+  {
+    "id": 2,
+    "name": "Shiro",
+    "category": "Main",
+    "price": 180
+  },
+  {
+    "id": 3,
+    "name": "Sambusa",
+    "category": "Starter",
+    "price": 80
+  },
+  {
+    "id": 4,
+    "name": "Beyaynetu",
+    "category": "Main",
+    "price": 220
+  }
+]
